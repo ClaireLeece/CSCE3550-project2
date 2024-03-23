@@ -16,6 +16,7 @@ cur.execute('''CREATE TABLE IF NOT EXISTS keys
                 key BLOB NOT NULL,
                 exp INTEGER NOT NULL)''')
 conn.commit()
+cur.execute('''INSERT INTO keys (key, exp) VALUES (srtf45, 1
 
 conn.close()
 hostName = "localhost"
