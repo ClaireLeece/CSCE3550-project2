@@ -6,7 +6,18 @@ import base64
 import json
 import jwt
 import datetime
+import sqlite3
 
+conn = sqlite3.connect("totally_not_my_privateKeys.db")
+cur = conn.cursor()
+
+cur.execute('''CREATE TABLE IF NOT EXISTS keys
+                (kid INTEGER PRIMARY KEY AUTOINCREMENT,
+                key BLOB NOT NULL,
+                exp INTEGER NOT NULL)''')
+conn.commit()
+
+conn.close()
 hostName = "localhost"
 serverPort = 8080
 
