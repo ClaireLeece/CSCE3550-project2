@@ -14,9 +14,8 @@ cur = conn.cursor()
 cur.execute('''CREATE TABLE IF NOT EXISTS keys
                 (kid INTEGER PRIMARY KEY AUTOINCREMENT,
                 key BLOB NOT NULL,
-                exp INTEGER NOT NULL)''')
+                exp INTEGER DEFAULT (CURRENT_TIMESTAMP - 20) NOT NULL)''')
 conn.commit()
-cur.execute('''INSERT INTO keys (key, exp) VALUES (srtf45, 1
 
 conn.close()
 hostName = "localhost"
